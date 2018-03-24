@@ -1,3 +1,13 @@
+<br/>
+
+<div class="row"> 
+  <%- flash.each do |key, value| %>
+	 <div class="alert alert-info">
+	 	<%= value %>
+	 </div>
+  <% end %>
+</div>
+
 <%= form_for @item do |f| %>
 	<%= f.label 'Name' %>
 	<%= f.text_field :name %>

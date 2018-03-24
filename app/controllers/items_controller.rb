@@ -11,8 +11,9 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		if @item.save
-			redirect_to items_path
+			redirect_to items_path, notice: 'Item successfully created'
 		else
+			flash.now[:error] = @item.errors.full_messages.to_sentence
 			render :new
 		end
 	end
