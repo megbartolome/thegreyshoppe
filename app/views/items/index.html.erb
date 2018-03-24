@@ -1,0 +1,28 @@
+<table style="width:50%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th> 
+      <th>Quantity</th> 
+      <th>Price</th> 
+      <th>Total Price</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <%- @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td> 
+        <td><%= item.quantity %></td>
+        <td><%= item.price %></td>
+        <td><%= item.total_price %></td>
+        <td><%= link_to "Edit", edit_item_path(item.id) %>
+        <td><%= link_to "Delete", item_path(item.id), method: :delete %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to "Create Item", new_item_path %>
